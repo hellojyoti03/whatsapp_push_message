@@ -1,0 +1,42 @@
+{
+	"dev": {
+		"username": "chiku",
+		"password": "lizachiku",
+		"database": "web_register",
+		"host": "localhost",
+		"port": "27017",
+		"dialect": "mongo",
+		"dialectOptions": {
+			"charset": "utf8mb4_unicode_ci"
+		},
+		"datetime": "yyyy-MM-dd HH:mm:ss"
+	},
+	"stg": {
+		"username": "chiku",
+		"password": "lizachiku",
+		"database": "Socialweb",
+		"host": "localhost",
+		"port": "27017",
+		"dialect": "mongo",
+		"dialectOptions": {
+			"charset": "utf8mb4_unicode_ci"
+		},
+		"datetime": "yyyy-MM-dd HH:mm:ss",
+		"redis_url": "redis://localhost:6379",
+		"mq_url": "amqp://localhost:5672"
+	},
+	"prd": {
+		"username": "chiku",
+		"password": "lizachiku",
+		"database": "Socialweb",
+		"host": "localhost",
+		"port": "27017",
+		"dialect": "mongo",
+		"dialectOptions": {
+			"charset": "utf8mb4_unicode_ci"
+		},
+		"datetime": "yyyy-MM-dd HH:mm:ss",
+		"redis_url": "redis://redis:6379",
+		"mq_url": "amqp://rabbitmq:5672"
+	}
+}

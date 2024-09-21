@@ -1,0 +1,15 @@
+chosmic/
+├── node_modules/        # Node.js modules
+├── public/              # Static files (images, CSS, JS)
+├── src/                 # Source files
+│   ├── controllers/     # Controllers for handling requests
+│   ├── models/          # Mongoose models
+│   ├── routes/          # Express routes
+│   ├── middleware/      # Custom middleware
+│   ├── utils/           # Utility functions
+│   ├── config/          # Configuration files
+│   ├── server.js        # Application entry point
+├── .env                 # Environment variables
+├── .gitignore           # Files to ignore in Git
+├── package.json         # Project metadata and dependencies
+├── README.md            # This README file
