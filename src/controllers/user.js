@@ -50,7 +50,8 @@ const userRegister = async (req, res) => {
 
 console.log(req.body, "POST USER REGISTER")
 	await createUserDoc(req)
-		// const data = {
+		
+	// const data = {
 		// 	from: '14157386102',
 		// 	to: req.body.calling_code.replace('+','') + req.body.phone_no ,
 		// 	message_type: 'text',
