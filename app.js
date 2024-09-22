@@ -33,14 +33,7 @@ const app = express();
 app.use(express.json());
 app.use(routerLogger.logIp);
 app.use(express.static('uploads'));
-const storage = multer.diskStorage({
-	destination: (req, file, cb) => {
-	  cb(null, 'uploads/'); // Specify the folder to save uploaded files
-	},
-	filename: (req, file, cb) => {
-	  cb(null, Date.now() + path.extname(file.originalname)); // Use a timestamp for the file name
-	},
-  });
+
 
 
 

@@ -32,7 +32,17 @@ let requestIpLogger = (req, res, next) => {
 	}
 }; 
 
+ const storage = multer.diskStorage({
+	destination: (req, file, cb) => {
+	  cb(null, 'uploads/'); // Specify the folder to save uploaded files
+	},
+	filename: (req, file, cb) => {
+	  cb(null, Date.now() + path.extname(file.originalname)); // Use a timestamp for the file name
+	},
+  });
+
 module.exports = {
 	logIp: requestIpLogger,
+	storage: storage
 };
 
