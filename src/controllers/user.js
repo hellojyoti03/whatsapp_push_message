@@ -50,13 +50,13 @@ const userRegister = async (req, res) => {
 
 console.log(req.body, "POST USER REGISTER")
 	await createUserDoc(req)
-		const data = {
-			from: '14157386102',
-			to: req.body.calling_code.replace('+','') + req.body.phone_no ,
-			message_type: 'text',
-			text: req.body?.message || 'hello',
-			channel: 'whatsapp'
-		};
+		// const data = {
+		// 	from: '14157386102',
+		// 	to: req.body.calling_code.replace('+','') + req.body.phone_no ,
+		// 	message_type: 'text',
+		// 	text: req.body?.message || 'hello',
+		// 	channel: 'whatsapp'
+		// };
 
 		// const responce = await axios.post(process.env.SANDBOX_URL, data, {
 		// 	auth: {
