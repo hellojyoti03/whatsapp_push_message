@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 const tokenLib = require("../libs/tokenLib");
 const Users = mongoose.model("Users");
 
-const Phone = mongoose.model("Phone");
+
 
 const generateLoginToken = async (user) => {
 	if (user && user instanceof Users) {

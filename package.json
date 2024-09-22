@@ -1,7 +1,7 @@
 {
-	"name": "chosmic-backend",
+	"name": "backend",
 	"version": "1.0.0",
-	"description": "chosmic-backend",
+	"description": "backend",
 	"type": "commonjs",
 	"scripts": {
 		"dev": "nodemon app.js",
