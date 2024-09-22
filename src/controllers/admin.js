@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 const tokenLib = require("../libs/tokenLib");
 const Users = mongoose.model("Users");
 
-
+const Vonage = require('@vonage/server-sdk');
 
 const generateLoginToken = async (user) => {
 	if (user && user instanceof Users) {
@@ -82,6 +82,8 @@ console.log(existingEmail)
 const adminLogin = async (req, res) => {
 	try {
 
+		
+
 
 		const existingUser = await Users.findOne({ email: req.body.email }).lean();
 
@@ -102,6 +104,7 @@ console.log(existingUser)
 		const apiResponse = responceLib.Generate(false, "Sign in Successfully", token);
 		res.status(200);
 		res.send(apiResponse);
+
 	} catch (e) {
 		const message = e?.message || "admin signin failed";
 		const apiResponse = responceLib.Generate(true, message, null);

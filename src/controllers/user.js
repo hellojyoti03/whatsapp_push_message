@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const Users = mongoose.model("Users");
 const axios = require('axios');
 
-
+var qs = require('qs');
 const createUserDoc = (req, res) => {
 	console.log('')
 	return new Promise((resolve, reject) => {
@@ -58,28 +58,55 @@ console.log(req.body, "POST USER REGISTER")
 			channel: 'whatsapp'
 		};
 
-		const responce = await axios.post(process.env.SANDBOX_URL, data, {
-			auth: {
-				username: process.env.SANDBOX_USERNAME,
-				password: process.env.SANDBOX_PASSWORD
-			},
-			headers: {
-				'Content-Type': 'application/json',
-				'Accept': 'application/json'
-			}
-		})
+		// const responce = await axios.post(process.env.SANDBOX_URL, data, {
+		// 	auth: {
+		// 		username: process.env.SANDBOX_USERNAME,
+		// 		password: process.env.SANDBOX_PASSWORD
+		// 	},
+		// 	headers: {
+		// 		'Content-Type': 'application/json',
+		// 		'Accept': 'application/json'
+		// 	}
+		// })
     
 		
 
 		
 		// await createUserDoc(req, res);
 
-		const apiResponse = responceLib.Generate(
+
+
+		var data = qs.stringify({
+			"token": "va235sj80rpwp992",
+			"to": req.body.phone_no,
+			"image": req.body.image,
+			"caption": "image Caption"
+		});
+		
+		var config = {
+		  method: 'post',
+		  url: 'https://api.ultramsg.com/instance95293/messages/image',
+		  headers: {  
+			'Content-Type': 'application/x-www-form-urlencoded'
+		  },
+		  data : data
+		};
+		
+		axios(config)
+		.then(function (response) {
+		  console.log(JSON.stringify(response.data));
+		  const apiResponse = responceLib.Generate(
 			false,
 			"User registered successfully",
-			responce.data
+			response.data
 		);
 		res.status(200).send(apiResponse);
+		})
+		.catch(function (error) {
+		  console.log(error);
+		  throw new Error(error)
+		});
+		
 	} catch (error) {
 		console.log("User registration failed:", error?.message);
 		const message = error.message || "User registration failed";
