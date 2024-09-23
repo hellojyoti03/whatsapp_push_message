@@ -47,7 +47,7 @@ app.all(appConfig.allowedCorsOrigin, (req, res, next) => {
 	res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS,PATCH");
 	next();
 });
-const upload = multer({ storage: storage });
+//const upload = multer({ storage: storage });
 
 
 // Middleware to serve static files
@@ -66,16 +66,16 @@ fs.readdirSync(routes).forEach((file) => {
 	}
 });
 
-app.post('/upload', upload.single('image'), (req, res) => {
-	if (!req.file) {
-	  return res.status(400).send('No file uploaded.');
-	}
+// app.post('/upload', upload.single('image'), (req, res) => {
+// 	if (!req.file) {
+// 	  return res.status(400).send('No file uploaded.');
+// 	}
 
-	// Construct the URL for the uploaded file
-	const fileUrl = `${req.protocol}://${req.get('host')}/uploads/${req.file.filename}`;
-	console.log('h')
-	res.json({ message: 'File uploaded successfully', fileUrl });
-  });
+// 	// Construct the URL for the uploaded file
+// 	const fileUrl = `${req.protocol}://${req.get('host')}/uploads/${req.file.filename}`;
+// 	console.log('h')
+// 	res.json({ message: 'File uploaded successfully', fileUrl });
+//   });
   
 
 app.use(globalErrorMiddleware);

@@ -41,6 +41,8 @@ let requestIpLogger = (req, res, next) => {
 	  cb(null, Date.now() + path.extname(file.originalname)); // Use a timestamp for the file name
 	},
   });
+
+  
   const upload = multer({ storage: storage });
 module.exports = {
 	logIp: requestIpLogger,
