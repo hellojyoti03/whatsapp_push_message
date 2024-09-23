@@ -197,6 +197,7 @@ const resetPassword = catcher(async (req, res, next) => {
 });
 
 const userRegister = async (req, res, next) => {
+	console.log(req.body, "validator")
 	const { email, name, phone_no, iso_code, calling_code } = req.body;
 	const schema = joi.object({
 		email: joi
@@ -207,7 +208,7 @@ const userRegister = async (req, res, next) => {
 		iso_code: joi.string().required(),
 		calling_code: joi.string().required(),
 		name: joi.string().required(),
-		image: joi.string().required()
+		
 	});
 
 	try {
@@ -217,7 +218,7 @@ const userRegister = async (req, res, next) => {
 			phone_no,
 			iso_code,
 			calling_code,
-			image
+			
 		});
 	
 		if (Object.keys(value)?.length) {

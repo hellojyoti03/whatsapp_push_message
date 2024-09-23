@@ -50,7 +50,7 @@ const userRegister = async (req, res) => {
 
 console.log(req.body, "POST USER REGISTER")
 	await createUserDoc(req)
-		
+	const fileUrl = `${req.protocol}://${req.get('host')}/uploads/${req.file.filename}`;
 	// const data = {
 		// 	from: '14157386102',
 		// 	to: req.body.calling_code.replace('+','') + req.body.phone_no ,
@@ -80,8 +80,8 @@ console.log(req.body, "POST USER REGISTER")
 		var data = qs.stringify({
 			"token": "va235sj80rpwp992",
 			"to": req.body.phone_no,
-			"image": req.body.image,
-			"caption": "image Caption"
+			"image":fileUrl,
+			"caption": "hello"
 		});
 		
 		var config = {
