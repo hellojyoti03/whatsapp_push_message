@@ -42,7 +42,7 @@ let requestIpLogger = (req, res, next) => {
 	},
   });
 
-  
+
   const upload = multer({ storage: storage });
 module.exports = {
 	logIp: requestIpLogger,

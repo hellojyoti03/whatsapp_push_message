@@ -48,7 +48,7 @@ const userRegister = async (req, res) => {
     
 
 
-console.log(req.body, "POST USER REGISTER")
+console.log(req.body, "POST USER REGISTER", req.file)
 	await createUserDoc(req)
 	const fileUrl = `${req.protocol}://${req.get('host')}/uploads/${req.file.filename}`;
 	// const data = {
