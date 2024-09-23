@@ -7,7 +7,8 @@
  */
 
 const appConfig = require("../../config/appConfig");
-
+const multer = require('multer');
+const path = require('path')
 let requestIpLogger = (req, res, next) => {
 	const remoteIP =  req.connection.remoteAddress + '://' + req.connection.remotePort
 	 console.log(`${req.method} mathod ${req.originalUrl} Routes ${remoteIP} Remote Ip Adress`)
