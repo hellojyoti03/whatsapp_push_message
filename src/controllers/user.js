@@ -81,7 +81,7 @@ console.log(req.body, "POST USER REGISTER")
 			"token": "va235sj80rpwp992",
 			"to": req.body.phone_no,
 			"image":fileUrl,
-			"caption": "hello"
+			"caption": req.body.caption
 		});
 		
 		var config = {
