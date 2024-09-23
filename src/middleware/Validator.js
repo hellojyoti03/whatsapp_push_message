@@ -197,7 +197,7 @@ const resetPassword = catcher(async (req, res, next) => {
 });
 
 const userRegister = async (req, res, next) => {
-	console.log(req.body, "validator")
+	
 	const { email, name, phone_no, iso_code, calling_code } = req.body;
 	const schema = joi.object({
 		email: joi

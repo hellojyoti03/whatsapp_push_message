@@ -10,6 +10,7 @@ const responseLib = require("../libs/responseLib");
 
 //Client and Server Error Handel
 const errorHandler = (err, req, res, next) => {
+	console.log(err);
 	const apiResponse = responseLib.Generate(true, "Some Error Happen In Global Label", null);
 	res.status(500);
 	res.send(apiResponse);

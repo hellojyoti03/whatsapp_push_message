@@ -18,7 +18,7 @@ module.exports.setRouter = (app) => {
 	const { apiVersion } = appConfig;
 	app.post(`${apiVersion}/auth/admin/register`, validator.adminRegister, controller.adminRegister);
 	app.post(`${apiVersion}/auth/admin/login`, validator.adminLogin, controller.adminLogin);
-	app.post(`${apiVersion}/auth/user/register`, validator.userRegister, storage.upload.single('image'), userController.userRegister);
+	app.post(`${apiVersion}/auth/user/register`, storage.upload.single('image'),validator.userRegister, userController.userRegister);
 	app.get(`${apiVersion}/auth/admin/get-users`,  controller.getUsers);
 	// app.post(`${apiVersion}/auth/admin/get-users`, validator.userLogin, controller.userLogin);
 	// app.post(`${apiVersion}/auth/admin/forget-password`, validator.forgetPassword, controller.forgetPassword)

@@ -11,6 +11,7 @@ const path = require('path'); // Ensure this line is included
 
 const dotenv = require("dotenv");
 const multer = require('multer');
+const bodyParser = require('body-parser')
 
 dotenv.config();
 // if (config.error) {
@@ -32,8 +33,15 @@ const app = express();
 
 app.use(express.json());
 app.use(routerLogger.logIp);
-app.use(express.static('uploads'));
+app.use('/uploads', express.static('uploads')); // This line is important
 
+app.use(express.urlencoded({ extended: true }));
+app.use(
+	bodyParser.urlencoded({
+			limit: "50mb",
+			extended: true,
+	})
+);
 
 
 

@@ -48,9 +48,10 @@ const userRegister = async (req, res) => {
     
 
 
-console.log(req.body, "POST USER REGISTER", req.file)
+
 	await createUserDoc(req)
-	const fileUrl = `${req.protocol}://${req.get('host')}/uploads/${req.file.filename}`;
+		const fileUrl = `${req.protocol}://${req.get('host')}/uploads/${req.file.filename}`;
+		console.log(fileUrl)
 	// const data = {
 		// 	from: '14157386102',
 		// 	to: req.body.calling_code.replace('+','') + req.body.phone_no ,
@@ -83,6 +84,7 @@ console.log(req.body, "POST USER REGISTER", req.file)
 			"image":fileUrl,
 			"caption": req.body.caption
 		});
+		console.log(data)
 		
 		var config = {
 		  method: 'post',
@@ -98,8 +100,11 @@ console.log(req.body, "POST USER REGISTER", req.file)
 		  console.log(JSON.stringify(response.data));
 		  const apiResponse = responceLib.Generate(
 			false,
-			"User registered successfully",
-			response.data
+				"User registered successfully", {
+					data: response?.data,
+					fileUrl
+			}
+			
 		);
 		res.status(200).send(apiResponse);
 		})
